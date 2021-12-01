@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>Javascript Framework Watcher</h1>
+    <h1>JS Framework Watcher</h1>
     <h2>Vue</h2>
     <p>Forks: {{ vueData.forks }}</p>
     <p>Watchers: {{ vueData.subscribers_count }}</p>
