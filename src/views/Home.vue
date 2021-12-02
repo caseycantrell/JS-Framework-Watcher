@@ -23,10 +23,31 @@
       <p>Watchers: {{ reactData.subscribers_count }}</p>
       <p>Stars: {{ reactData.watchers }}</p>
     </div>
+    <div align="center">
+      <zingchart :data="Forks" :height="300" :width="800" />
+    </div>
   </div>
 </template>
 
-<style></style>
+<style>
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.chart--container {
+  height: 100%;
+  width: 100%;
+  min-height: 150px;
+}
+
+.zc-ref {
+  display: none;
+}
+</style>
 
 <script>
 import axios from "axios";
@@ -39,12 +60,45 @@ export default {
       emberData: [],
       svelteData: [],
       reactData: [],
+      Forks: {
+        type: "bar",
+        title: {
+          text: "Forks",
+        },
+        series: [
+          {
+            values: [23, 54, 54, 39, 47],
+            text: "React",
+          },
+        ],
+        scaleX: {
+          // Set scale label
+          label: { text: "Framework" },
+          // Convert text on scale indices
+          labels: ["Vue", "Angular", "Ember", "Svelte", "React"],
+        },
+        scaleY: {
+          // Scale label with unicode character
+          label: { text: "Total" },
+        },
+        plot: {
+          // Animation docs here:
+          // https://www.zingchart.com/docs/tutorials/styling/animation#effect
+          animation: {
+            effect: "ANIMATION_EXPAND_BOTTOM",
+            method: "ANIMATION_STRONG_EASE_IN",
+            sequence: "ANIMATION_BY_NODE",
+            speed: 750,
+          },
+        },
+      },
     };
   },
   created: function () {
     axios.get("https://api.github.com/repos/vuejs/vue").then((response) => {
       console.log(response.data);
       this.vueData = response.data;
+      // this.forks.series.values.push(response.data.forks);
     });
     axios.get("https://api.github.com/repos/angular/angular.js").then((response) => {
       console.log(response.data);
