@@ -26,6 +26,12 @@
     <div align="center" v-if="forks.series[0]['values'].length > 0">
       <zingchart :data="forks" :height="300" :width="800" />
     </div>
+    <div align="center" v-if="watchers.series[0]['values'].length > 4">
+      <zingchart :data="watchers" :height="300" :width="800" />
+    </div>
+    <div align="center" v-if="stars.series[0]['values'].length > 4">
+      <zingchart :data="stars" :height="300" :width="800" />
+    </div>
   </div>
 </template>
 
@@ -68,39 +74,115 @@ export default {
           },
         },
       },
+      watchers: {
+        type: "bar",
+        title: {
+          text: "Watchers",
+        },
+        series: [
+          {
+            values: [],
+          },
+        ],
+        scaleX: {
+          label: { text: "Framework" },
+          labels: ["Vue", "Angular", "Ember", "Svelte", "React"],
+        },
+        scaleY: {
+          label: { text: "Total" },
+        },
+        plot: {
+          animation: {
+            effect: "ANIMATION_EXPAND_BOTTOM",
+            method: "ANIMATION_STRONG_EASE_IN",
+            sequence: "ANIMATION_BY_NODE",
+            speed: 750,
+          },
+        },
+      },
+      stars: {
+        type: "bar",
+        title: {
+          text: "Stars",
+        },
+        series: [
+          {
+            values: [],
+          },
+        ],
+        scaleX: {
+          label: { text: "Framework" },
+          labels: ["Vue", "Angular", "Ember", "Svelte", "React"],
+        },
+        scaleY: {
+          label: { text: "Total" },
+        },
+        plot: {
+          animation: {
+            effect: "ANIMATION_EXPAND_BOTTOM",
+            method: "ANIMATION_STRONG_EASE_IN",
+            sequence: "ANIMATION_BY_NODE",
+            speed: 750,
+          },
+        },
+      },
     };
   },
   created: function () {
     axios.get("https://api.github.com/repos/vuejs/vue").then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
       this.vueData = response.data;
-      var forksArray = this.forks.series[0]["values"];
-      forksArray.push(response.data.forks);
-      console.log(forksArray);
+      // var forksArray = this.forks.series[0]["values"];
+      // forksArray.push(response.data.forks);
+      var watchersArray = this.watchers.series[0]["values"];
+      watchersArray.push(response.data.subscribers_count);
+      var starsArray = this.stars.series[0]["values"];
+      starsArray.push(response.data.watchers);
+      // console.log(forksArray);
     });
     axios.get("https://api.github.com/repos/angular/angular.js").then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
       this.angularData = response.data;
-      // this.forks.series[0]["values"].push(response.data.forks);
-      // console.log(this.forks.series[0]["values"]);
+      // var forksArray = this.forks.series[0]["values"];
+      // forksArray.push(response.data.forks);
+      var watchersArray = this.watchers.series[0]["values"];
+      watchersArray.push(response.data.subscribers_count);
+      var starsArray = this.stars.series[0]["values"];
+      starsArray.push(response.data.watchers);
+      // console.log(forksArray);
     });
     axios.get("https://api.github.com/repos/emberjs/ember.js").then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
       this.emberData = response.data;
-      // this.forks.series[0]["values"].push(response.data.forks);
-      // console.log(this.forks.series[0]["values"][0]);
+      // var forksArray = this.forks.series[0]["values"];
+      // forksArray.push(response.data.forks);
+      var watchersArray = this.watchers.series[0]["values"];
+      watchersArray.push(response.data.subscribers_count);
+      var starsArray = this.stars.series[0]["values"];
+      starsArray.push(response.data.watchers);
+      // console.log(forksArray);
     });
     axios.get("https://api.github.com/repos/sveltejs/svelte").then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
       this.svelteData = response.data;
-      // this.forks.series[0]["values"].push(response.data.forks);
-      // console.log(this.forks.series[0]["values"][0]);
+      // var forksArray = this.forks.series[0]["values"];
+      // forksArray.push(response.data.forks);
+      var watchersArray = this.watchers.series[0]["values"];
+      watchersArray.push(response.data.subscribers_count);
+      var starsArray = this.stars.series[0]["values"];
+      starsArray.push(response.data.watchers);
+      // console.log(forksArray);
     });
     axios.get("https://api.github.com/repos/facebook/react").then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
       this.reactData = response.data;
-      // this.forks.series[0]["values"].push(response.data.forks);
-      // console.log(this.forks.series[0]["values"]);
+      // var forksArray = this.forks.series[0]["values"];
+      // forksArray.push(response.data.forks);
+      var watchersArray = this.watchers.series[0]["values"];
+      watchersArray.push(response.data.subscribers_count);
+      var starsArray = this.stars.series[0]["values"];
+      starsArray.push(response.data.watchers);
+      // console.log(forksArray);
     });
   },
   mounted: function () {
