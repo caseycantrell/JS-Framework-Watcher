@@ -5,77 +5,107 @@
       <div class="container-xxl">
         <div class="row row-cols-1 row-cols-md-2 g-4">
           <div class="col">
-            <div class="card">
-              <img src="" class="card-img-top" alt="" />
-              <div class="card-body">
-                <h5 class="card-title">Vue.js</h5>
-                <p class="card-text">
-                  Forks: {{ vueData.forks }}
-                  <br />
-                  Watchers: {{ vueData.subscribers_count }}
-                  <br />
-                  Stars: {{ vueData.watchers }}
-                </p>
+            <div class="card mb-3" style="max-width: 540px">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img
+                    src="https://vuejs.org/images/logo.png"
+                    class="img-fluid rounded-start"
+                    alt="https://vuejs.org/images/logo.png"
+                  />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Vue.js</h5>
+                    <p class="card-text">&#127860; Forks: {{ vueData.forks }}</p>
+                    <p class="card-text">&#128064; Watchers: {{ vueData.subscribers_count }}</p>
+                    <p class="card-text">&#x2b50; Stars: {{ vueData.watchers }}</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
           <div class="col">
-            <div class="card">
-              <img src="" class="card-img-top" alt="" />
-              <div class="card-body">
-                <h5 class="card-title">Angular</h5>
-                <p class="card-text">
-                  Forks: {{ angularData.forks }}
-                  <br />
-                  Watchers: {{ angularData.subscribers_count }}
-                  <br />
-                  Stars: {{ angularData.watchers }}
-                </p>
+            <div class="card mb-3" style="max-width: 540px">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img
+                    src="https://icon2.cleanpng.com/20180329/jue/kisspng-angularjs-dart-front-and-back-ends-npm-escalator-5abda7d6ba62f5.4348649815223787107634.jpg"
+                    class="img-fluid rounded-start"
+                    alt="https://icon2.cleanpng.com/20180329/jue/kisspng-angularjs-dart-front-and-back-ends-npm-escalator-5abda7d6ba62f5.4348649815223787107634.jpg"
+                  />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Angular</h5>
+                    <p class="card-text">&#127860; Forks: {{ angularData.forks }}</p>
+                    <p class="card-text">&#128064; Watchers: {{ angularData.subscribers_count }}</p>
+                    <p class="card-text">&#x2b50; Stars: {{ angularData.watchers }}</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
           <div class="col">
-            <div class="card">
-              <img src="" class="card-img-top" alt="" />
-              <div class="card-body">
-                <h5 class="card-title">emberJS</h5>
-                <p class="card-text">
-                  Forks: {{ emberData.forks }}
-                  <br />
-                  Watchers: {{ emberData.subscribers_count }}
-                  <br />
-                  Stars: {{ emberData.watchers }}
-                </p>
+            <div class="card mb-3" style="max-width: 540px">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img
+                    src="https://emberjs.com/images/brand/ember-tomster-lockup-4c.svg"
+                    class="img-fluid rounded-start"
+                    alt="https://emberjs.com/images/brand/ember-tomster-lockup-4c.svg"
+                  />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Ember</h5>
+                    <p class="card-text">&#127860; Forks: {{ emberData.forks }}</p>
+                    <p class="card-text">&#128064; Watchers: {{ emberData.subscribers_count }}</p>
+                    <p class="card-text">&#x2b50; Stars: {{ emberData.watchers }}</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
           <div class="col">
-            <div class="card">
-              <img src="" class="card-img-top" alt="" />
-              <div class="card-body">
-                <h5 class="card-title">Svelte</h5>
-                <p class="card-text">
-                  Forks: {{ svelteData.forks }}
-                  <br />
-                  Watchers: {{ svelteData.subscribers_count }}
-                  <br />
-                  Stars: {{ svelteData.watchers }}
-                </p>
+            <div class="card mb-3" style="max-width: 540px">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img
+                    src="https://miro.medium.com/max/1200/0*T6pKJjgoPIBy_u-_.png"
+                    class="img-fluid rounded-start"
+                    alt="https://miro.medium.com/max/1200/0*T6pKJjgoPIBy_u-_.png"
+                  />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Svelte</h5>
+                    <p class="card-text">&#127860; Forks: {{ svelteData.forks }}</p>
+                    <p class="card-text">&#128064; Watchers: {{ svelteData.subscribers_count }}</p>
+                    <p class="card-text">&#x2b50; Stars: {{ svelteData.watchers }}</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
           <div class="col">
-            <div class="card">
-              <img src="" class="card-img-top" alt="" />
-              <div class="card-body">
-                <h5 class="card-title">React</h5>
-                <p class="card-text">
-                  Forks: {{ reactData.forks }}
-                  <br />
-                  Watchers: {{ reactData.subscribers_count }}
-                  <br />
-                  Stars: {{ reactData.watchers }}
-                </p>
+            <div class="card mb-3" style="max-width: 540px">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img
+                    src="https://www.vhv.rs/dpng/d/524-5245981_react-js-logo-png-transparent-png-download.png"
+                    class="img-fluid rounded-start"
+                    alt="https://www.vhv.rs/dpng/d/524-5245981_react-js-logo-png-transparent-png-download.png"
+                  />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">React</h5>
+                    <p class="card-text">&#127860; Forks: {{ reactData.forks }}</p>
+                    <p class="card-text">&#128064; Watchers: {{ reactData.subscribers_count }}</p>
+                    <p class="card-text">&#x2b50; Stars: {{ reactData.watchers }}</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
