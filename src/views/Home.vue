@@ -224,7 +224,8 @@ export default {
       },
     };
   },
-  created: function () {
+  created: function () {},
+  mounted: function () {
     axios.get("https://api.github.com/repos/vuejs/vue").then((response) => {
       console.log(response.data);
       this.vueData = response.data;
@@ -281,7 +282,6 @@ export default {
       console.log(forksArray);
     });
   },
-  mounted: function () {},
-  methods: {},
+  methods: function () {},
 };
 </script>
