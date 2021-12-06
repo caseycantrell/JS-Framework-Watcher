@@ -2,10 +2,90 @@
   <div class="home">
     <div class="data">
       <h1>JS Framework Watcher</h1>
+      <div class="container-xl">
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+          <div class="col">
+            <div class="card">
+              <img src="" class="card-img-top" alt="" />
+              <div class="card-body">
+                <h5 class="card-title">Vue.js</h5>
+                <p class="card-text">
+                  Forks: {{ vueData.forks }}
+                  <br />
+                  Watchers: {{ vueData.subscribers_count }}
+                  <br />
+                  Stars: {{ vueData.watchers }}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src="" class="card-img-top" alt="" />
+              <div class="card-body">
+                <h5 class="card-title">Angular</h5>
+                <p class="card-text">
+                  Forks: {{ angularData.forks }}
+                  <br />
+                  Watchers: {{ angularData.subscribers_count }}
+                  <br />
+                  Stars: {{ angularData.watchers }}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src="" class="card-img-top" alt="" />
+              <div class="card-body">
+                <h5 class="card-title">emberJS</h5>
+                <p class="card-text">
+                  Forks: {{ emberData.forks }}
+                  <br />
+                  Watchers: {{ emberData.subscribers_count }}
+                  <br />
+                  Stars: {{ emberData.watchers }}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src="" class="card-img-top" alt="" />
+              <div class="card-body">
+                <h5 class="card-title">Svelte</h5>
+                <p class="card-text">
+                  Forks: {{ svelteData.forks }}
+                  <br />
+                  Watchers: {{ svelteData.subscribers_count }}
+                  <br />
+                  Stars: {{ svelteData.watchers }}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src="" class="card-img-top" alt="" />
+              <div class="card-body">
+                <h5 class="card-title">React</h5>
+                <p class="card-text">
+                  Forks: {{ reactData.forks }}
+                  <br />
+                  Watchers: {{ reactData.subscribers_count }}
+                  <br />
+                  Stars: {{ reactData.watchers }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <h2>Vue</h2>
       <p>Forks: {{ vueData.forks }}</p>
       <p>Watchers: {{ vueData.subscribers_count }}</p>
       <p>Stars: {{ vueData.watchers }}</p>
+
       <h2>Angular</h2>
       <p>Forks: {{ angularData.forks }}</p>
       <p>Watchers: {{ angularData.subscribers_count }}</p>
@@ -23,6 +103,7 @@
       <p>Watchers: {{ reactData.subscribers_count }}</p>
       <p>Stars: {{ reactData.watchers }}</p>
     </div>
+
     <div align="center" v-if="forks.series[0]['values'].length > 4">
       <zingchart :data="forks" :height="300" :width="800" />
     </div>
