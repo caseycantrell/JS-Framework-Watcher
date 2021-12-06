@@ -2,7 +2,7 @@
   <div class="home">
     <div class="data">
       <h1>JS Framework Watcher</h1>
-      <div class="container-xl">
+      <div class="container-xxl">
         <div class="row row-cols-1 row-cols-md-2 g-4">
           <div class="col">
             <div class="card">
@@ -81,27 +81,6 @@
           </div>
         </div>
       </div>
-      <h2>Vue</h2>
-      <p>Forks: {{ vueData.forks }}</p>
-      <p>Watchers: {{ vueData.subscribers_count }}</p>
-      <p>Stars: {{ vueData.watchers }}</p>
-
-      <h2>Angular</h2>
-      <p>Forks: {{ angularData.forks }}</p>
-      <p>Watchers: {{ angularData.subscribers_count }}</p>
-      <p>Stars: {{ angularData.watchers }}</p>
-      <h2>Ember</h2>
-      <p>Forks: {{ emberData.forks }}</p>
-      <p>Watchers: {{ emberData.subscribers_count }}</p>
-      <p>Stars: {{ emberData.watchers }}</p>
-      <h2>Svelte</h2>
-      <p>Forks: {{ svelteData.forks }}</p>
-      <p>Watchers: {{ svelteData.subscribers_count }}</p>
-      <p>Stars: {{ svelteData.watchers }}</p>
-      <h2>React</h2>
-      <p>Forks: {{ reactData.forks }}</p>
-      <p>Watchers: {{ reactData.subscribers_count }}</p>
-      <p>Stars: {{ reactData.watchers }}</p>
     </div>
 
     <div align="center" v-if="forks.series[0]['values'].length > 4">
