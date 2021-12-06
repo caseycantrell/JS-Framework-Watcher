@@ -2,7 +2,9 @@
   <div class="home">
     <div class="data">
       <h1>JS Framework Watcher</h1>
-      <div class="container-xxl">
+      <br />
+      <br />
+      <div class="container-xl">
         <div class="row row-cols-1 row-cols-md-2 g-4">
           <div class="col">
             <div class="card mb-3" style="max-width: 540px">
@@ -125,7 +127,11 @@
   </div>
 </template>
 
-<style></style>
+<style>
+img {
+  width: 150px;
+}
+</style>
 
 <script>
 import axios from "axios";
