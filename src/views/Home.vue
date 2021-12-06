@@ -10,11 +10,7 @@
             <div class="card mb-3" style="max-width: 540px">
               <div class="row g-0">
                 <div class="col-md-4">
-                  <img
-                    src="https://vuejs.org/images/logo.png"
-                    class="img-fluid rounded-start"
-                    alt="https://vuejs.org/images/logo.png"
-                  />
+                  <img :src="vueThumb" class="img-fluid rounded-start" alt="" />
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
@@ -31,11 +27,7 @@
             <div class="card mb-3" style="max-width: 540px">
               <div class="row g-0">
                 <div class="col-md-4">
-                  <img
-                    src="https://icon2.cleanpng.com/20180329/jue/kisspng-angularjs-dart-front-and-back-ends-npm-escalator-5abda7d6ba62f5.4348649815223787107634.jpg"
-                    class="img-fluid rounded-start"
-                    alt="https://icon2.cleanpng.com/20180329/jue/kisspng-angularjs-dart-front-and-back-ends-npm-escalator-5abda7d6ba62f5.4348649815223787107634.jpg"
-                  />
+                  <img :src="angularThumb" class="img-fluid rounded-start" alt="" />
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
@@ -52,11 +44,7 @@
             <div class="card mb-3" style="max-width: 540px">
               <div class="row g-0">
                 <div class="col-md-4">
-                  <img
-                    src="https://emberjs.com/images/brand/ember-tomster-lockup-4c.svg"
-                    class="img-fluid rounded-start"
-                    alt="https://emberjs.com/images/brand/ember-tomster-lockup-4c.svg"
-                  />
+                  <img :src="emberThumb" class="img-fluid rounded-start" alt="" />
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
@@ -73,11 +61,7 @@
             <div class="card mb-3" style="max-width: 540px">
               <div class="row g-0">
                 <div class="col-md-4">
-                  <img
-                    src="https://miro.medium.com/max/1200/0*T6pKJjgoPIBy_u-_.png"
-                    class="img-fluid rounded-start"
-                    alt="https://miro.medium.com/max/1200/0*T6pKJjgoPIBy_u-_.png"
-                  />
+                  <img :src="svelteThumb" class="img-fluid rounded-start" alt="" />
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
@@ -94,11 +78,7 @@
             <div class="card mb-3" style="max-width: 540px">
               <div class="row g-0">
                 <div class="col-md-4">
-                  <img
-                    src="https://www.vhv.rs/dpng/d/524-5245981_react-js-logo-png-transparent-png-download.png"
-                    class="img-fluid rounded-start"
-                    alt="https://www.vhv.rs/dpng/d/524-5245981_react-js-logo-png-transparent-png-download.png"
-                  />
+                  <img :src="reactThumb" class="img-fluid rounded-start" alt="" />
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
@@ -135,10 +115,20 @@ img {
 
 <script>
 import axios from "axios";
+import vueThumb from "/src/assets/img/vuethumb.jpg";
+import angularThumb from "/src/assets/img/angularthumb.jpg";
+import emberThumb from "/src/assets/img/emberthumb.jpg";
+import svelteThumb from "/src/assets/img/sveltethumb.jpg";
+import reactThumb from "/src/assets/img/reactthumb.jpg";
 
 export default {
   data: function () {
     return {
+      vueThumb,
+      angularThumb,
+      emberThumb,
+      svelteThumb,
+      reactThumb,
       vueData: [],
       angularData: [],
       emberData: [],
