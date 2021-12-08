@@ -306,44 +306,44 @@ export default {
     axios.get("https://api.github.com/repos/vuejs/vue").then((response) => {
       console.log(response.data);
       this.vueData = response.data;
-      this.forks.series[0]["values"][0] = response.data.forks;
-      this.watchers.series[0]["values"][0] = response.data.subscribers_count;
-      this.stars.series[0]["values"][0] = response.data.watchers;
+      this.forks.series[0].values[0] = response.data.forks;
+      this.watchers.series[0].values[0] = response.data.subscribers_count;
+      this.stars.series[0].values[0] = response.data.watchers;
     });
     axios.get("https://api.github.com/repos/angular/angular.js").then((response) => {
       console.log(response.data);
       this.angularData = response.data;
-      this.forks.series[0]["values"][1] = response.data.forks;
-      this.watchers.series[0]["values"][1] = response.data.subscribers_count;
-      this.stars.series[0]["values"][1] = response.data.watchers;
+      this.forks.series[0].values[1] = response.data.forks;
+      this.watchers.series[0].values[1] = response.data.subscribers_count;
+      this.stars.series[0].values[1] = response.data.watchers;
     });
     axios.get("https://api.github.com/repos/emberjs/ember.js").then((response) => {
       console.log(response.data);
       this.emberData = response.data;
-      this.forks.series[0]["values"][2] = response.data.forks;
-      this.watchers.series[0]["values"][2] = response.data.subscribers_count;
-      this.stars.series[0]["values"][2] = response.data.watchers;
+      this.forks.series[0].values[2] = response.data.forks;
+      this.watchers.series[0].values[2] = response.data.subscribers_count;
+      this.stars.series[0].values[2] = response.data.watchers;
     });
     axios.get("https://api.github.com/repos/sveltejs/svelte").then((response) => {
       console.log(response.data);
       this.svelteData = response.data;
-      this.forks.series[0]["values"][3] = response.data.forks;
-      this.watchers.series[0]["values"][3] = response.data.subscribers_count;
-      this.stars.series[0]["values"][3] = response.data.watchers;
+      this.forks.series[0].values[3] = response.data.forks;
+      this.watchers.series[0].values[3] = response.data.subscribers_count;
+      this.stars.series[0].values[3] = response.data.watchers;
     });
     axios.get("https://api.github.com/repos/jquery/jquery").then((response) => {
       console.log(response.data);
       this.jqueryData = response.data;
-      this.forks.series[0]["values"][4] = response.data.forks;
-      this.watchers.series[0]["values"][4] = response.data.subscribers_count;
-      this.stars.series[0]["values"][4] = response.data.watchers;
+      this.forks.series[0].values[4] = response.data.forks;
+      this.watchers.series[0].values[4] = response.data.subscribers_count;
+      this.stars.series[0].values[4] = response.data.watchers;
     });
     axios.get("https://api.github.com/repos/facebook/react").then((response) => {
       console.log(response.data);
       this.reactData = response.data;
-      this.forks.series[0]["values"][5] = response.data.forks;
-      this.watchers.series[0]["values"][5] = response.data.subscribers_count;
-      this.stars.series[0]["values"][5] = response.data.watchers;
+      this.forks.series[0].values[5] = response.data.forks;
+      this.watchers.series[0].values[5] = response.data.subscribers_count;
+      this.stars.series[0].values[5] = response.data.watchers;
     });
   },
   methods: function () {},
