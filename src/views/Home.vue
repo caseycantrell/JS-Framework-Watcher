@@ -280,8 +280,7 @@ export default {
       },
     };
   },
-  created: function () {},
-  mounted: function () {
+  created: function () {
     axios.get("https://api.github.com/repos/vuejs/vue").then((response) => {
       console.log(response.data);
       this.vueData = response.data;
@@ -325,6 +324,7 @@ export default {
       this.stars.series[0].values[5] = response.data.watchers;
     });
   },
+  mounted: function () {},
   methods: function () {},
 };
 </script>
