@@ -12,10 +12,10 @@
           <div class="col">
             <div class="card" style="width: 18rem">
               <img class="card-img-top" :src="vueThumb" alt="Card image cap" />
-              <div class="card-body bg-info text-dark" align="center">
+              <!-- <div class="card-body bg-info text-dark" align="center">
                 <h5 class="card-title">Vue</h5>
                 <p class="card-text"></p>
-              </div>
+              </div> -->
               <ul class="list-group list-group-flush" align="center">
                 <li class="list-group-item">&#127860; Forks: {{ vueData.forks }}</li>
                 <li class="list-group-item">&#128064; Watchers: {{ vueData.subscribers_count }}</li>
@@ -30,10 +30,10 @@
           <div class="col">
             <div class="card" style="width: 18rem">
               <img class="card-img-top" :src="angularThumb" alt="Card image cap" />
-              <div class="card-body bg-info text-dark" align="center">
+              <!-- <div class="card-body bg-info text-dark" align="center">
                 <h5 class="card-title">Angular</h5>
                 <p class="card-text"></p>
-              </div>
+              </div> -->
               <ul class="list-group list-group-flush" align="center">
                 <li class="list-group-item">&#127860; Forks: {{ angularData.forks }}</li>
                 <li class="list-group-item">&#128064; Watchers: {{ angularData.subscribers_count }}</li>
@@ -48,10 +48,10 @@
           <div class="col">
             <div class="card" style="width: 18rem">
               <img class="card-img-top" :src="emberThumb" alt="Card image cap" />
-              <div class="card-body bg-info text-dark" align="center">
+              <!-- <div class="card-body bg-info text-dark" align="center">
                 <h5 class="card-title">Ember</h5>
                 <p class="card-text"></p>
-              </div>
+              </div> -->
               <ul class="list-group list-group-flush" align="center">
                 <li class="list-group-item">&#127860; Forks: {{ emberData.forks }}</li>
                 <li class="list-group-item">&#128064; Watchers: {{ emberData.subscribers_count }}</li>
@@ -66,10 +66,10 @@
           <div class="col">
             <div class="card" style="width: 18rem">
               <img class="card-img-top" :src="svelteThumb" alt="Card image cap" />
-              <div class="card-body bg-info text-dark" align="center">
+              <!-- <div class="card-body bg-info text-dark" align="center">
                 <h5 class="card-title">Svelte</h5>
                 <p class="card-text"></p>
-              </div>
+              </div> -->
               <ul class="list-group list-group-flush" align="center">
                 <li class="list-group-item">&#127860; Forks: {{ svelteData.forks }}</li>
                 <li class="list-group-item">&#128064; Watchers: {{ svelteData.subscribers_count }}</li>
@@ -84,10 +84,10 @@
           <div class="col">
             <div class="card" style="width: 18rem">
               <img class="card-img-top" :src="jqueryThumb" alt="Card image cap" />
-              <div class="card-body bg-info text-dark" align="center">
+              <!-- <div class="card-body bg-info text-dark" align="center">
                 <h5 class="card-title">jQuery</h5>
                 <p class="card-text"></p>
-              </div>
+              </div> -->
               <ul class="list-group list-group-flush" align="center">
                 <li class="list-group-item">&#127860; Forks: {{ jqueryData.forks }}</li>
                 <li class="list-group-item">&#128064; Watchers: {{ jqueryData.subscribers_count }}</li>
@@ -102,10 +102,10 @@
           <div class="col">
             <div class="card" style="width: 18rem">
               <img class="card-img-top" :src="reactThumb" alt="Card image cap" />
-              <div class="card-body bg-info text-dark" align="center">
+              <!-- <div class="card-body bg-info text-dark" align="center">
                 <h5 class="card-title">React</h5>
                 <p class="card-text"></p>
-              </div>
+              </div> -->
               <ul class="list-group list-group-flush" align="center">
                 <li class="list-group-item">&#127860; Forks: {{ reactData.forks }}</li>
                 <li class="list-group-item">&#128064; Watchers: {{ reactData.subscribers_count }}</li>
@@ -123,7 +123,7 @@
     <br />
     <br />
     <div class="mx-1 container-fluid">
-      <div class="mx-1 row">
+      <div class="mx-1 row row-cols-1 row-cols-md-1 g-3 justify-content-between">
         <div class="card" style="">
           <div class="card-body">
             <h5 class="card-title" align="center">Forks</h5>
@@ -154,46 +154,25 @@
 </template>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-familly: "Poppins", sans-serif;
-}
 body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #43345d;
-  min-height: 800px;
+  background-image: url("https://images.unsplash.com/photo-1523821741446-edb2b68bb7a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80");
+  background-color: #cccccc;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.card {
+  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.502);
+  transition: 0.3s;
+  border-radius: 5px; /* 5px rounded corners */
 }
 
-.container {
-  position: relative;
-  width: 1100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-warp: warp;
-  padding: 30px;
+/* Add rounded corners to the top left and the top right corner of the image */
+img {
+  border-radius: 5px 5px 0 0;
 }
 
-.container .card {
-  position: relative;
-  max-width: 300px;
-  height: 215px;
-  background-color: #fff;
-  margin: 30px 10px;
-  padding: 20px 15px;
-
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-  transition: 0.3s ease-in-out;
-  border-radius: 15px;
-}
-.container .card:hover {
-  height: 380px;
+h1 {
+  color: white;
 }
 </style>
 
