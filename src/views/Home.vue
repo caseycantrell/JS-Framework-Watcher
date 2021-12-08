@@ -122,25 +122,25 @@
     </div>
     <br />
     <br />
-    <div class="mx-1 container-fluid">
-      <div class="mx-1 row row-cols-1 row-cols-md-1 g-3 justify-content-between">
-        <div class="card" style="">
-          <div class="card-body">
+    <div class="d-flex p-2">
+      <div class="mx-1 row row-cols-1 row-cols-md-1 g-4">
+        <div class="card w-75 d-flex flex-column">
+          <div class="card-body justify-content-between">
             <h5 class="card-title" align="center">Forks</h5>
-            <div align="center" v-if="forks.series[0]['values'].length > 5">
+            <div v-if="forks.series[0]['values'].length > 5">
               <zingchart :data="forks" :height="300" :width="1200" />
             </div>
           </div>
         </div>
-        <div class="card" style="">
+        <div class="card w-75">
           <div class="card-body">
             <h5 class="card-title" align="center">Watchers</h5>
             <div align="center" v-if="watchers.series[0]['values'].length > 5">
-              <zingchart :data="forks" :height="300" :width="1200" />
+              <zingchart :data="watchers" :height="300" :width="1200" />
             </div>
           </div>
         </div>
-        <div class="card" style="">
+        <div class="card w-75">
           <div class="card-body">
             <h5 class="card-title" align="center">Stars</h5>
             <div align="center" v-if="stars.series[0]['values'].length > 5">
@@ -159,6 +159,7 @@ body {
   background-color: #cccccc;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-size: auto;
 }
 .card {
   box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.502);
@@ -201,7 +202,12 @@ export default {
       jqueryData: [],
       reactData: [],
       forks: {
-        type: "bar",
+        theme: "light",
+        type: "bar3d",
+        "3d-aspect": {
+          true3d: false,
+          depth: "30px",
+        },
         title: {
           text: "",
         },
@@ -227,7 +233,12 @@ export default {
         },
       },
       watchers: {
-        type: "bar",
+        theme: "light",
+        type: "bar3d",
+        "3d-aspect": {
+          true3d: false,
+          depth: "30px",
+        },
         title: {
           text: "",
         },
@@ -253,7 +264,12 @@ export default {
         },
       },
       stars: {
-        type: "bar",
+        theme: "light",
+        type: "bar3d",
+        "3d-aspect": {
+          true3d: false,
+          depth: "30px",
+        },
         title: {
           text: "",
         },
