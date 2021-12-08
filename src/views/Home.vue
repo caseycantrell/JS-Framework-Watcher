@@ -8,7 +8,7 @@
       <br />
       <br />
       <div class="container-xl">
-        <div class="row row-cols-2 row-cols-sm-5 g-4">
+        <div class="row row-cols-2 row-cols-lg-3 g-5 justify-content-between">
           <div class="col">
             <div class="card" style="width: 18rem">
               <img class="card-img-top" :src="vueThumb" alt="Card image cap" />
@@ -20,6 +20,10 @@
                 <li class="list-group-item">&#127860; Forks: {{ vueData.forks }}</li>
                 <li class="list-group-item">&#128064; Watchers: {{ vueData.subscribers_count }}</li>
                 <li class="list-group-item">&#x2b50; Stars: {{ vueData.watchers }}</li>
+                <li class="list-group-item">
+                  Popularity Score:
+                  {{ Math.floor(vueData.watchers + vueData.subscribers_count + vueData.forks / 3) }}
+                </li>
               </ul>
             </div>
           </div>
@@ -34,6 +38,10 @@
                 <li class="list-group-item">&#127860; Forks: {{ angularData.forks }}</li>
                 <li class="list-group-item">&#128064; Watchers: {{ angularData.subscribers_count }}</li>
                 <li class="list-group-item">&#x2b50; Stars: {{ angularData.watchers }}</li>
+                <li class="list-group-item">
+                  Popularity Score:
+                  {{ Math.floor(angularData.watchers + angularData.subscribers_count + angularData.forks / 3) }}
+                </li>
               </ul>
             </div>
           </div>
@@ -48,6 +56,10 @@
                 <li class="list-group-item">&#127860; Forks: {{ emberData.forks }}</li>
                 <li class="list-group-item">&#128064; Watchers: {{ emberData.subscribers_count }}</li>
                 <li class="list-group-item">&#x2b50; Stars: {{ emberData.watchers }}</li>
+                <li class="list-group-item">
+                  Popularity Score:
+                  {{ Math.floor(emberData.watchers + emberData.subscribers_count + emberData.forks / 3) }}
+                </li>
               </ul>
             </div>
           </div>
@@ -62,6 +74,28 @@
                 <li class="list-group-item">&#127860; Forks: {{ svelteData.forks }}</li>
                 <li class="list-group-item">&#128064; Watchers: {{ svelteData.subscribers_count }}</li>
                 <li class="list-group-item">&#x2b50; Stars: {{ svelteData.watchers }}</li>
+                <li class="list-group-item">
+                  Popularity Score:
+                  {{ Math.floor(svelteData.watchers + svelteData.subscribers_count + svelteData.forks / 3) }}
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card" style="width: 18rem">
+              <img class="card-img-top" :src="reactThumb" alt="Card image cap" />
+              <div class="card-body bg-info text-dark" align="center">
+                <h5 class="card-title">jQuery</h5>
+                <p class="card-text"></p>
+              </div>
+              <ul class="list-group list-group-flush" align="center">
+                <li class="list-group-item">&#127860; Forks: {{ jqueryData.forks }}</li>
+                <li class="list-group-item">&#128064; Watchers: {{ jqueryData.subscribers_count }}</li>
+                <li class="list-group-item">&#x2b50; Stars: {{ jqueryData.watchers }}</li>
+                <li class="list-group-item">
+                  Popularity Score:
+                  {{ Math.floor(jqueryData.watchers + jqueryData.subscribers_count + jqueryData.forks / 3) }}
+                </li>
               </ul>
             </div>
           </div>
@@ -76,6 +110,10 @@
                 <li class="list-group-item">&#127860; Forks: {{ reactData.forks }}</li>
                 <li class="list-group-item">&#128064; Watchers: {{ reactData.subscribers_count }}</li>
                 <li class="list-group-item">&#x2b50; Stars: {{ reactData.watchers }}</li>
+                <li class="list-group-item">
+                  Popularity Score:
+                  {{ Math.floor(reactData.watchers + reactData.subscribers_count + reactData.forks / 3) }}
+                </li>
               </ul>
             </div>
           </div>
@@ -90,7 +128,7 @@
           <div class="card-body">
             <h5 class="card-title" align="center">Forks</h5>
             <div align="center" v-if="forks.series[0]['values'].length > 4">
-              <zingchart :data="forks" :height="300" :width="800" />
+              <zingchart :data="forks" :height="300" :width="1200" />
             </div>
           </div>
         </div>
@@ -98,7 +136,7 @@
           <div class="card-body">
             <h5 class="card-title" align="center">Watchers</h5>
             <div align="center" v-if="watchers.series[0]['values'].length > 4">
-              <zingchart :data="forks" :height="300" :width="800" />
+              <zingchart :data="forks" :height="300" :width="1200" />
             </div>
           </div>
         </div>
@@ -106,7 +144,7 @@
           <div class="card-body">
             <h5 class="card-title" align="center">Stars</h5>
             <div align="center" v-if="stars.series[0]['values'].length > 4">
-              <zingchart :data="stars" :height="300" :width="800" />
+              <zingchart :data="stars" :height="300" :width="1200" />
             </div>
           </div>
         </div>
@@ -159,6 +197,7 @@ export default {
       angularData: [],
       emberData: [],
       svelteData: [],
+      jqueryData: [],
       reactData: [],
       forks: {
         type: "bar",
@@ -172,7 +211,7 @@ export default {
         ],
         scaleX: {
           label: { text: "Framework" },
-          labels: ["Vue", "Angular", "Ember", "Svelte", "React"],
+          labels: ["Vue", "Angular", "Ember", "Svelte", "jQuery", "React"],
         },
         scaleY: {
           label: { text: "Total" },
@@ -198,7 +237,7 @@ export default {
         ],
         scaleX: {
           label: { text: "Framework" },
-          labels: ["Vue", "Angular", "Ember", "Svelte", "React"],
+          labels: ["Vue", "Angular", "Ember", "Svelte", "jQuery", "React"],
         },
         scaleY: {
           label: { text: "Total" },
@@ -224,7 +263,7 @@ export default {
         ],
         scaleX: {
           label: { text: "Framework" },
-          labels: ["Vue", "Angular", "Ember", "Svelte", "React"],
+          labels: ["Vue", "Angular", "Ember", "Svelte", "jQuery", "React"],
         },
         scaleY: {
           label: { text: "Total" },
@@ -251,7 +290,6 @@ export default {
       watchersArray.push(response.data.subscribers_count);
       var starsArray = this.stars.series[0]["values"];
       starsArray.push(response.data.watchers);
-      console.log(forksArray);
     });
     axios.get("https://api.github.com/repos/angular/angular.js").then((response) => {
       console.log(response.data);
@@ -262,7 +300,6 @@ export default {
       watchersArray.push(response.data.subscribers_count);
       var starsArray = this.stars.series[0]["values"];
       starsArray.push(response.data.watchers);
-      console.log(forksArray);
     });
     axios.get("https://api.github.com/repos/emberjs/ember.js").then((response) => {
       console.log(response.data);
@@ -273,7 +310,6 @@ export default {
       watchersArray.push(response.data.subscribers_count);
       var starsArray = this.stars.series[0]["values"];
       starsArray.push(response.data.watchers);
-      console.log(forksArray);
     });
     axios.get("https://api.github.com/repos/sveltejs/svelte").then((response) => {
       console.log(response.data);
@@ -284,7 +320,16 @@ export default {
       watchersArray.push(response.data.subscribers_count);
       var starsArray = this.stars.series[0]["values"];
       starsArray.push(response.data.watchers);
-      console.log(forksArray);
+    });
+    axios.get("https://api.github.com/repos/jquery/jquery").then((response) => {
+      console.log(response.data);
+      this.jqueryData = response.data;
+      var forksArray = this.forks.series[0]["values"];
+      forksArray.push(response.data.forks);
+      var watchersArray = this.watchers.series[0]["values"];
+      watchersArray.push(response.data.subscribers_count);
+      var starsArray = this.stars.series[0]["values"];
+      starsArray.push(response.data.watchers);
     });
     axios.get("https://api.github.com/repos/facebook/react").then((response) => {
       console.log(response.data);
@@ -295,7 +340,6 @@ export default {
       watchersArray.push(response.data.subscribers_count);
       var starsArray = this.stars.series[0]["values"];
       starsArray.push(response.data.watchers);
-      console.log(forksArray);
     });
   },
   methods: function () {},
