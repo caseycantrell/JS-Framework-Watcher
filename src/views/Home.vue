@@ -83,7 +83,7 @@
           </div>
           <div class="col">
             <div class="card" style="width: 18rem">
-              <img class="card-img-top" :src="reactThumb" alt="Card image cap" />
+              <img class="card-img-top" :src="jqueryThumb" alt="Card image cap" />
               <div class="card-body bg-info text-dark" align="center">
                 <h5 class="card-title">jQuery</h5>
                 <p class="card-text"></p>
@@ -115,24 +115,6 @@
                   {{ Math.floor(reactData.watchers + reactData.subscribers_count + reactData.forks / 3) }}
                 </li>
               </ul>
-            </div>
-          </div>
-          <div class="container">
-            <div class="card">
-              <div class="image">
-                <img href="#" :src="vueThumb" class="img-fluid img-thumbnail" />
-              </div>
-              <div class="content">
-                <ul class="list-group list-group-flush" align="center">
-                  <li class="list-group-item">&#127860; Forks: {{ reactData.forks }}</li>
-                  <li class="list-group-item">&#128064; Watchers: {{ reactData.subscribers_count }}</li>
-                  <li class="list-group-item">&#x2b50; Stars: {{ reactData.watchers }}</li>
-                  <li class="list-group-item">
-                    Popularity Score:
-                    {{ Math.floor(reactData.watchers + reactData.subscribers_count + reactData.forks / 3) }}
-                  </li>
-                </ul>
-              </div>
             </div>
           </div>
         </div>
@@ -213,44 +195,6 @@ body {
 .container .card:hover {
   height: 380px;
 }
-
-.container .card .image {
-  position: relative;
-  width: 260px;
-  height: 260px;
-
-  top: -40%;
-  left: 0px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-.container .card .image img {
-  max-width: 100%;
-  border-radius: 15px;
-}
-
-.container .card .content {
-  position: relative;
-  top: -150px;
-  padding: 10px 15px;
-  color: #111;
-  text-align: center;
-
-  visibility: hidden;
-  opacity: 0;
-  transition: 0.3s ease-in-out;
-}
-
-.container .card:hover .content {
-  margin-top: 30px;
-  visibility: visible;
-  opacity: 1;
-  transition-delay: 0.2s;
-}
-
-.card {
-}
 </style>
 
 <script>
@@ -260,6 +204,7 @@ import angularThumb from "/src/assets/img/angularthumb.jpg";
 import emberThumb from "/src/assets/img/emberthumb.jpg";
 import svelteThumb from "/src/assets/img/sveltethumb.jpg";
 import reactThumb from "/src/assets/img/reactthumb.jpg";
+import jqueryThumb from "/src/assets/img/jquerythumb.jpg";
 
 export default {
   data: function () {
@@ -268,6 +213,7 @@ export default {
       angularThumb,
       emberThumb,
       svelteThumb,
+      jqueryThumb,
       reactThumb,
       vueData: [],
       angularData: [],
@@ -360,62 +306,44 @@ export default {
     axios.get("https://api.github.com/repos/vuejs/vue").then((response) => {
       console.log(response.data);
       this.vueData = response.data;
-      var forksArray = this.forks.series[0]["values"];
-      forksArray.push(response.data.forks);
-      var watchersArray = this.watchers.series[0]["values"];
-      watchersArray.push(response.data.subscribers_count);
-      var starsArray = this.stars.series[0]["values"];
-      starsArray.push(response.data.watchers);
+      this.forks.series[0]["values"][0] = response.data.forks;
+      this.watchers.series[0]["values"][0] = response.data.subscribers_count;
+      this.stars.series[0]["values"][0] = response.data.watchers;
     });
     axios.get("https://api.github.com/repos/angular/angular.js").then((response) => {
       console.log(response.data);
       this.angularData = response.data;
-      var forksArray = this.forks.series[0]["values"];
-      forksArray.push(response.data.forks);
-      var watchersArray = this.watchers.series[0]["values"];
-      watchersArray.push(response.data.subscribers_count);
-      var starsArray = this.stars.series[0]["values"];
-      starsArray.push(response.data.watchers);
+      this.forks.series[0]["values"][1] = response.data.forks;
+      this.watchers.series[0]["values"][1] = response.data.subscribers_count;
+      this.stars.series[0]["values"][1] = response.data.watchers;
     });
     axios.get("https://api.github.com/repos/emberjs/ember.js").then((response) => {
       console.log(response.data);
       this.emberData = response.data;
-      var forksArray = this.forks.series[0]["values"];
-      forksArray.push(response.data.forks);
-      var watchersArray = this.watchers.series[0]["values"];
-      watchersArray.push(response.data.subscribers_count);
-      var starsArray = this.stars.series[0]["values"];
-      starsArray.push(response.data.watchers);
+      this.forks.series[0]["values"][2] = response.data.forks;
+      this.watchers.series[0]["values"][2] = response.data.subscribers_count;
+      this.stars.series[0]["values"][2] = response.data.watchers;
     });
     axios.get("https://api.github.com/repos/sveltejs/svelte").then((response) => {
       console.log(response.data);
       this.svelteData = response.data;
-      var forksArray = this.forks.series[0]["values"];
-      forksArray.push(response.data.forks);
-      var watchersArray = this.watchers.series[0]["values"];
-      watchersArray.push(response.data.subscribers_count);
-      var starsArray = this.stars.series[0]["values"];
-      starsArray.push(response.data.watchers);
+      this.forks.series[0]["values"][3] = response.data.forks;
+      this.watchers.series[0]["values"][3] = response.data.subscribers_count;
+      this.stars.series[0]["values"][3] = response.data.watchers;
     });
     axios.get("https://api.github.com/repos/jquery/jquery").then((response) => {
       console.log(response.data);
       this.jqueryData = response.data;
-      var forksArray = this.forks.series[0]["values"];
-      forksArray.push(response.data.forks);
-      var watchersArray = this.watchers.series[0]["values"];
-      watchersArray.push(response.data.subscribers_count);
-      var starsArray = this.stars.series[0]["values"];
-      starsArray.push(response.data.watchers);
+      this.forks.series[0]["values"][4] = response.data.forks;
+      this.watchers.series[0]["values"][4] = response.data.subscribers_count;
+      this.stars.series[0]["values"][4] = response.data.watchers;
     });
     axios.get("https://api.github.com/repos/facebook/react").then((response) => {
       console.log(response.data);
       this.reactData = response.data;
-      var forksArray = this.forks.series[0]["values"];
-      forksArray.push(response.data.forks);
-      var watchersArray = this.watchers.series[0]["values"];
-      watchersArray.push(response.data.subscribers_count);
-      var starsArray = this.stars.series[0]["values"];
-      starsArray.push(response.data.watchers);
+      this.forks.series[0]["values"][5] = response.data.forks;
+      this.watchers.series[0]["values"][5] = response.data.subscribers_count;
+      this.stars.series[0]["values"][5] = response.data.watchers;
     });
   },
   methods: function () {},
