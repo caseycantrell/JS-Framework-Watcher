@@ -8,7 +8,7 @@
       <br />
       <br />
       <div class="container-xl">
-        <div class="row row-cols-2 row-cols-lg-3 g-5 justify-content-between">
+        <div class="row row-cols-1 row-cols-md-3 g-5 justify-content-between">
           <div class="col">
             <div class="card" style="width: 18rem">
               <img class="card-img-top" :src="vueThumb" alt="Card image cap" />
@@ -117,6 +117,24 @@
               </ul>
             </div>
           </div>
+          <div class="container">
+            <div class="card">
+              <div class="image">
+                <img href="#" :src="vueThumb" class="img-fluid img-thumbnail" />
+              </div>
+              <div class="content">
+                <ul class="list-group list-group-flush" align="center">
+                  <li class="list-group-item">&#127860; Forks: {{ reactData.forks }}</li>
+                  <li class="list-group-item">&#128064; Watchers: {{ reactData.subscribers_count }}</li>
+                  <li class="list-group-item">&#x2b50; Stars: {{ reactData.watchers }}</li>
+                  <li class="list-group-item">
+                    Popularity Score:
+                    {{ Math.floor(reactData.watchers + reactData.subscribers_count + reactData.forks / 3) }}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -127,7 +145,7 @@
         <div class="card" style="">
           <div class="card-body">
             <h5 class="card-title" align="center">Forks</h5>
-            <div align="center" v-if="forks.series[0]['values'].length > 4">
+            <div align="center" v-if="forks.series[0]['values'].length > 5">
               <zingchart :data="forks" :height="300" :width="1200" />
             </div>
           </div>
@@ -135,7 +153,7 @@
         <div class="card" style="">
           <div class="card-body">
             <h5 class="card-title" align="center">Watchers</h5>
-            <div align="center" v-if="watchers.series[0]['values'].length > 4">
+            <div align="center" v-if="watchers.series[0]['values'].length > 5">
               <zingchart :data="forks" :height="300" :width="1200" />
             </div>
           </div>
@@ -143,7 +161,7 @@
         <div class="card" style="">
           <div class="card-body">
             <h5 class="card-title" align="center">Stars</h5>
-            <div align="center" v-if="stars.series[0]['values'].length > 4">
+            <div align="center" v-if="stars.series[0]['values'].length > 5">
               <zingchart :data="stars" :height="300" :width="1200" />
             </div>
           </div>
@@ -154,26 +172,84 @@
 </template>
 
 <style>
-img {
-  width: 150px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-familly: "Poppins", sans-serif;
 }
 body {
-  background: white;
-}
-.card {
-  /* Add shadows to create the "card" effect */
-  background: black;
-  box-shadow: 0 8px 22px 0 rgba(0, 0, 0, 0.44);
-  transition: 0.5s;
-  border-radius: 5px;
-}
-.card-title {
-  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #43345d;
+  min-height: 800px;
 }
 
-/* On mouse-over, add a deeper shadow */
-.card:hover {
-  box-shadow: 0 12px 22px 0 rgba(0, 0, 0, 0.44);
+.container {
+  position: relative;
+  width: 1100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-warp: warp;
+  padding: 30px;
+}
+
+.container .card {
+  position: relative;
+  max-width: 300px;
+  height: 215px;
+  background-color: #fff;
+  margin: 30px 10px;
+  padding: 20px 15px;
+
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  transition: 0.3s ease-in-out;
+  border-radius: 15px;
+}
+.container .card:hover {
+  height: 380px;
+}
+
+.container .card .image {
+  position: relative;
+  width: 260px;
+  height: 260px;
+
+  top: -40%;
+  left: 0px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.container .card .image img {
+  max-width: 100%;
+  border-radius: 15px;
+}
+
+.container .card .content {
+  position: relative;
+  top: -150px;
+  padding: 10px 15px;
+  color: #111;
+  text-align: center;
+
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+}
+
+.container .card:hover .content {
+  margin-top: 30px;
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0.2s;
+}
+
+.card {
 }
 </style>
 
