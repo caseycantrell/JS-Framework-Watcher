@@ -1,12 +1,12 @@
 <template>
   <div class="home">
     <br />
-    <div class="container-fluid" style="width: 60rem">
+    <div class="container-sm" style="width: 60rem">
       <div class="row">
         <div class="col"><h1>JavaScript</h1></div>
         <div class="col"><h1>Framework</h1></div>
-        <div class="col order-last">
-          <img :src="watcher" width="250px" height="63px" />
+        <div class="col">
+          <img :src="watcher" width="275px" height="63px" />
         </div>
       </div>
     </div>
@@ -127,39 +127,39 @@
 
     <br />
     <br />
-    <div class="d-flex p-2">
-      <div class="mx-1 row row-cols-1 row-cols-md-1">
-        <div class="card w-75">
-          <div class="card-body">
-            <div v-if="forks.series[0]['values'].length > 5">
-              <zingchart :data="forks" :height="350" :width="1200" />
-            </div>
+    <!-- <div class="d-flex p-2"> -->
+    <div class="mx-1 row row-cols-1 row-cols-md-1">
+      <div class="card w-75">
+        <div class="card-body">
+          <div align="center" v-if="forks.series[0]['values'].length > 5">
+            <zingchart :data="forks" :height="350" :width="1200" />
           </div>
         </div>
-        <div class="card w-75">
-          <div class="card-body">
-            <div align="center" v-if="watchers.series[0]['values'].length > 5">
-              <zingchart :data="watchers" :height="350" :width="1200" />
-            </div>
+      </div>
+      <div class="card w-75">
+        <div class="card-body">
+          <div align="center" v-if="watchers.series[0]['values'].length > 5">
+            <zingchart :data="watchers" :height="350" :width="1200" />
           </div>
         </div>
-        <div class="card w-75">
-          <div class="card-body">
-            <div align="center" v-if="stars.series[0]['values'].length > 5">
-              <zingchart :data="stars" :height="350" :width="1200" />
-            </div>
+      </div>
+      <div class="card w-75">
+        <div class="card-body">
+          <div align="center" v-if="stars.series[0]['values'].length > 5">
+            <zingchart :data="stars" :height="350" :width="1200" />
           </div>
         </div>
-        <div class="card w-75">
-          <div class="card-body">
-            <div align="center" v-if="popularity.series[0]['values'].length > 5">
-              <zingchart :data="popularity" :height="350" :width="1200" />
-            </div>
+      </div>
+      <div class="card w-75">
+        <div class="card-body">
+          <div align="center" v-if="popularity.series[0]['values'].length > 5">
+            <zingchart :data="popularity" :height="350" :width="1200" />
           </div>
         </div>
       </div>
     </div>
   </div>
+  <!-- </div> -->
 </template>
 
 <style>
