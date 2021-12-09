@@ -1,15 +1,19 @@
 <template>
   <div class="home">
     <br />
-    <div class="card" id="header" style="width: 36rem">
-      <div align="center justify-content-center">
-        <img class="card-img-top" :src="frameworkWatcher" />
+    <div class="container-fluid" style="width: 60rem">
+      <div class="row">
+        <div class="col"><h1>JavaScript</h1></div>
+        <div class="col"><h1>Framework</h1></div>
+        <div class="col order-last">
+          <img :src="watcher" width="250px" height="63px" />
+        </div>
       </div>
     </div>
     <br />
     <br />
     <div class="container-xl">
-      <div class="row row-cols-1 row-cols-md-3 g-5 justify-content-between">
+      <div class="row row-cols-1 row-cols-md-3 g-5">
         <div class="col">
           <div class="card" style="width: 18rem">
             <img class="card-img-top" :src="vueThumb" alt="Card image cap" />
@@ -125,8 +129,8 @@
     <br />
     <div class="d-flex p-2">
       <div class="mx-1 row row-cols-1 row-cols-md-1">
-        <div class="card w-75 d-flex flex-column">
-          <div class="card-body justify-content-between">
+        <div class="card w-75">
+          <div class="card-body">
             <div v-if="forks.series[0]['values'].length > 5">
               <zingchart :data="forks" :height="350" :width="1200" />
             </div>
@@ -159,6 +163,13 @@
 </template>
 
 <style>
+h1 {
+  color: white;
+  font-family: Roboto;
+  text-shadow: 1px 1px #00b3ff92;
+  font-size: 60px;
+}
+
 body {
   background-image: url("https://www.teahub.io/photos/full/212-2124160_4uv0t9-blue-polygon-wallpaper-4k.jpg");
   background-color: #0073ff;
@@ -187,7 +198,7 @@ import emberThumb from "/src/assets/img/emberthumb.jpg";
 import svelteThumb from "/src/assets/img/sveltethumb.jpg";
 import reactThumb from "/src/assets/img/reactthumb.jpg";
 import jqueryThumb from "/src/assets/img/jquerythumb.jpg";
-import frameworkWatcher from "/src/assets/img/frameworkwatcher.gif";
+import watcher from "/src/assets/img/watchersmall.gif";
 
 export default {
   data: function () {
@@ -198,7 +209,7 @@ export default {
       svelteThumb,
       jqueryThumb,
       reactThumb,
-      frameworkWatcher,
+      watcher,
       vueData: [],
       angularData: [],
       emberData: [],
