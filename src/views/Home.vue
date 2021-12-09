@@ -4,12 +4,6 @@
     <div align="center">
       <h1>JS FRAMEWORK WATCHER</h1>
     </div>
-    <section class="move-area">
-      <div class=".container">
-        <div class="eye"></div>
-        <div class="eye"></div>
-      </div>
-    </section>
     <br />
     <br />
     <div class="container-xl">
