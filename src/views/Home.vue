@@ -161,13 +161,9 @@
 <style>
 body {
   background-image: url("https://www.teahub.io/photos/full/212-2124160_4uv0t9-blue-polygon-wallpaper-4k.jpg");
-  background-color: #00bbaf;
+  background-color: #0073ff;
   background-attachment: fixed;
   background-size: auto;
-}
-
-.background-image {
-  filter: blur(12px);
 }
 
 .card {
@@ -180,15 +176,6 @@ body {
   background-color: #ffffff10;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-}
-
-/* Add rounded corners to the top left and the top right corner of the image */
-img {
-  border-radius: 5px 5px 0 0;
-}
-
-h1 {
-  color: white;
 }
 </style>
 
@@ -225,7 +212,6 @@ export default {
         "3d-aspect": {
           true3d: false,
           depth: "5px",
-          zoom: 1,
         },
         title: {
           text: "Forks",
