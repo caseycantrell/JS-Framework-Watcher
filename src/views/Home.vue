@@ -1,8 +1,10 @@
 <template>
   <div class="home">
     <br />
-    <div align="center">
-      <h1>JS FRAMEWORK WATCHER</h1>
+    <div class="container" style="width: 36rem">
+      <div align="center justify-content-center">
+        <img class="card-img-top" :src="frameworkWatcher" />
+      </div>
     </div>
     <br />
     <br />
@@ -21,7 +23,7 @@
               <li class="list-group-item">&#x2b50; Stars: {{ vueData.watchers }}</li>
               <li class="list-group-item">
                 Popularity Score:
-                {{ Math.floor(vueData.watchers + vueData.subscribers_count + vueData.forks / 3) }}
+                {{ Math.round((vueData.watchers + vueData.subscribers_count + vueData.forks) / 3) }}
               </li>
             </ul>
           </div>
@@ -39,7 +41,7 @@
               <li class="list-group-item">&#x2b50; Stars: {{ angularData.watchers }}</li>
               <li class="list-group-item">
                 Popularity Score:
-                {{ Math.floor(angularData.watchers + angularData.subscribers_count + angularData.forks / 3) }}
+                {{ Math.round((angularData.watchers + angularData.subscribers_count + angularData.forks) / 3) }}
               </li>
             </ul>
           </div>
@@ -57,7 +59,7 @@
               <li class="list-group-item">&#x2b50; Stars: {{ emberData.watchers }}</li>
               <li class="list-group-item">
                 Popularity Score:
-                {{ Math.floor(emberData.watchers + emberData.subscribers_count + emberData.forks / 3) }}
+                {{ Math.round((emberData.watchers + emberData.subscribers_count + emberData.forks) / 3) }}
               </li>
             </ul>
           </div>
@@ -75,7 +77,7 @@
               <li class="list-group-item">&#x2b50; Stars: {{ svelteData.watchers }}</li>
               <li class="list-group-item">
                 Popularity Score:
-                {{ Math.floor(svelteData.watchers + svelteData.subscribers_count + svelteData.forks / 3) }}
+                {{ Math.round((svelteData.watchers + svelteData.subscribers_count + svelteData.forks) / 3) }}
               </li>
             </ul>
           </div>
@@ -93,7 +95,7 @@
               <li class="list-group-item">&#x2b50; Stars: {{ jqueryData.watchers }}</li>
               <li class="list-group-item">
                 Popularity Score:
-                {{ Math.floor(jqueryData.watchers + jqueryData.subscribers_count + jqueryData.forks / 3) }}
+                {{ Math.round((jqueryData.watchers + jqueryData.subscribers_count + jqueryData.forks) / 3) }}
               </li>
             </ul>
           </div>
@@ -111,7 +113,7 @@
               <li class="list-group-item">&#x2b50; Stars: {{ reactData.watchers }}</li>
               <li class="list-group-item">
                 Popularity Score:
-                {{ Math.floor(reactData.watchers + reactData.subscribers_count + reactData.forks / 3) }}
+                {{ Math.round((reactData.watchers + reactData.subscribers_count + reactData.forks) / 3) }}
               </li>
             </ul>
           </div>
@@ -141,6 +143,13 @@
           <div class="card-body">
             <div align="center" v-if="stars.series[0]['values'].length > 5">
               <zingchart :data="stars" :height="350" :width="1200" />
+            </div>
+          </div>
+        </div>
+        <div class="card w-75">
+          <div class="card-body">
+            <div align="center" v-if="stars.series[0]['values'].length > 5">
+              <zingchart :data="popularity" :height="350" :width="1200" />
             </div>
           </div>
         </div>
@@ -192,6 +201,7 @@ import emberThumb from "/src/assets/img/emberthumb.jpg";
 import svelteThumb from "/src/assets/img/sveltethumb.jpg";
 import reactThumb from "/src/assets/img/reactthumb.jpg";
 import jqueryThumb from "/src/assets/img/jquerythumb.jpg";
+import frameworkWatcher from "/src/assets/img/frameworkwatcher.gif";
 
 export default {
   data: function () {
@@ -202,6 +212,7 @@ export default {
       svelteThumb,
       jqueryThumb,
       reactThumb,
+      frameworkWatcher,
       vueData: [],
       angularData: [],
       emberData: [],
@@ -305,6 +316,41 @@ export default {
           },
         },
       },
+      popularity: {
+        theme: "dark",
+        backgroundColor: "none",
+        type: "bar",
+        "3d-aspect": {
+          true3d: false,
+          depth: "10px",
+        },
+        title: {
+          text: "Popularity Score",
+        },
+        subtitle: {
+          text: "Based on average number of total Forks, Watchers, and Stars",
+        },
+        series: [
+          {
+            values: [],
+          },
+        ],
+        scaleX: {
+          label: { text: "Framework" },
+          labels: ["Vue", "Angular", "Ember", "Svelte", "jQuery", "React"],
+        },
+        scaleY: {
+          label: { text: "" },
+        },
+        plot: {
+          animation: {
+            effect: "ANIMATION_EXPAND_BOTTOM",
+            method: "ANIMATION_STRONG_EASE_IN",
+            sequence: "ANIMATION_BY_NODE",
+            speed: 750,
+          },
+        },
+      },
     };
   },
   created: function () {
@@ -314,6 +360,8 @@ export default {
       this.forks.series[0].values[0] = response.data.forks;
       this.watchers.series[0].values[0] = response.data.subscribers_count;
       this.stars.series[0].values[0] = response.data.watchers;
+      this.popularity.series[0].values[0] =
+        (response.data.watchers + response.data.forks + response.data.subscribers_count) / 3;
     });
     axios.get("https://api.github.com/repos/angular/angular.js").then((response) => {
       console.log(response.data);
@@ -321,6 +369,8 @@ export default {
       this.forks.series[0].values[1] = response.data.forks;
       this.watchers.series[0].values[1] = response.data.subscribers_count;
       this.stars.series[0].values[1] = response.data.watchers;
+      this.popularity.series[0].values[1] =
+        (response.data.watchers + response.data.forks + response.data.subscribers_count) / 3;
     });
     axios.get("https://api.github.com/repos/emberjs/ember.js").then((response) => {
       console.log(response.data);
@@ -328,6 +378,8 @@ export default {
       this.forks.series[0].values[2] = response.data.forks;
       this.watchers.series[0].values[2] = response.data.subscribers_count;
       this.stars.series[0].values[2] = response.data.watchers;
+      this.popularity.series[0].values[2] =
+        (response.data.watchers + response.data.forks + response.data.subscribers_count) / 3;
     });
     axios.get("https://api.github.com/repos/sveltejs/svelte").then((response) => {
       console.log(response.data);
@@ -335,6 +387,8 @@ export default {
       this.forks.series[0].values[3] = response.data.forks;
       this.watchers.series[0].values[3] = response.data.subscribers_count;
       this.stars.series[0].values[3] = response.data.watchers;
+      this.popularity.series[0].values[3] =
+        (response.data.watchers + response.data.forks + response.data.subscribers_count) / 3;
     });
     axios.get("https://api.github.com/repos/jquery/jquery").then((response) => {
       console.log(response.data);
@@ -342,6 +396,8 @@ export default {
       this.forks.series[0].values[4] = response.data.forks;
       this.watchers.series[0].values[4] = response.data.subscribers_count;
       this.stars.series[0].values[4] = response.data.watchers;
+      this.popularity.series[0].values[4] =
+        (response.data.watchers + response.data.forks + response.data.subscribers_count) / 3;
     });
     axios.get("https://api.github.com/repos/facebook/react").then((response) => {
       console.log(response.data);
@@ -349,6 +405,8 @@ export default {
       this.forks.series[0].values[5] = response.data.forks;
       this.watchers.series[0].values[5] = response.data.subscribers_count;
       this.stars.series[0].values[5] = response.data.watchers;
+      this.popularity.series[0].values[5] =
+        (response.data.watchers + response.data.forks + response.data.subscribers_count) / 3;
     });
   },
   mounted: function () {},
