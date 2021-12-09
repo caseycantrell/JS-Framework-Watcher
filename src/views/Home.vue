@@ -123,10 +123,9 @@
     <br />
     <br />
     <div class="d-flex p-2">
-      <div class="mx-1 row row-cols-1 row-cols-md-1 g-4">
+      <div class="mx-1 row row-cols-1 row-cols-md-1">
         <div class="card w-75 d-flex flex-column">
           <div class="card-body justify-content-between">
-            <h5 class="card-title" align="center">Forks</h5>
             <div v-if="forks.series[0]['values'].length > 5">
               <zingchart :data="forks" :height="300" :width="1200" />
             </div>
@@ -134,7 +133,6 @@
         </div>
         <div class="card w-75">
           <div class="card-body">
-            <h5 class="card-title" align="center">Watchers</h5>
             <div align="center" v-if="watchers.series[0]['values'].length > 5">
               <zingchart :data="watchers" :height="300" :width="1200" />
             </div>
@@ -142,7 +140,6 @@
         </div>
         <div class="card w-75">
           <div class="card-body">
-            <h5 class="card-title" align="center">Stars</h5>
             <div align="center" v-if="stars.series[0]['values'].length > 5">
               <zingchart :data="stars" :height="300" :width="1200" />
             </div>
@@ -155,16 +152,27 @@
 
 <style>
 body {
-  background-image: url("https://images.unsplash.com/photo-1523821741446-edb2b68bb7a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80");
-  background-color: #cccccc;
+  background-image: url("https://wallpapercave.com/wp/oo0Q9UW.jpg");
+  background-color: #025979;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: auto;
 }
+
+.background-image {
+  filter: blur(12px);
+}
+
 .card {
   box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.502);
   transition: 0.3s;
-  border-radius: 5px; /* 5px rounded corners */
+  border-radius: 5px;
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 20px;
+  background-color: #ffffff10;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 /* Add rounded corners to the top left and the top right corner of the image */
@@ -202,14 +210,15 @@ export default {
       jqueryData: [],
       reactData: [],
       forks: {
-        theme: "light",
+        theme: "dark",
+        backgroundColor: "none",
         type: "bar3d",
         "3d-aspect": {
           true3d: false,
           depth: "30px",
         },
         title: {
-          text: "",
+          text: "Forks",
         },
         series: [
           {
@@ -233,14 +242,15 @@ export default {
         },
       },
       watchers: {
-        theme: "light",
+        theme: "dark",
+        backgroundColor: "none",
         type: "bar3d",
         "3d-aspect": {
           true3d: false,
           depth: "30px",
         },
         title: {
-          text: "",
+          text: "Watchers",
         },
         series: [
           {
@@ -264,14 +274,15 @@ export default {
         },
       },
       stars: {
-        theme: "light",
+        theme: "dark",
+        backgroundColor: "none",
         type: "bar3d",
         "3d-aspect": {
           true3d: false,
           depth: "30px",
         },
         title: {
-          text: "",
+          text: "Stars",
         },
         series: [
           {
