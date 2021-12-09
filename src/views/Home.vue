@@ -1,125 +1,130 @@
 <template>
   <div class="home">
-    <div class="data">
-      <div align="center">
-        <br />
-        <h1>JS FRAMEWORK WATCHER</h1>
+    <br />
+    <div align="center">
+      <h1>JS FRAMEWORK WATCHER</h1>
+    </div>
+    <section class="move-area">
+      <div class=".container">
+        <div class="eye"></div>
+        <div class="eye"></div>
       </div>
-      <br />
-      <br />
-      <div class="container-xl">
-        <div class="row row-cols-1 row-cols-md-3 g-5 justify-content-between">
-          <div class="col">
-            <div class="card" style="width: 18rem">
-              <img class="card-img-top" :src="vueThumb" alt="Card image cap" />
-              <!-- <div class="card-body bg-info text-dark" align="center">
+    </section>
+    <br />
+    <br />
+    <div class="container-xl">
+      <div class="row row-cols-1 row-cols-md-3 g-5 justify-content-between">
+        <div class="col">
+          <div class="card" style="width: 18rem">
+            <img class="card-img-top" :src="vueThumb" alt="Card image cap" />
+            <!-- <div class="card-body bg-info text-dark" align="center">
                 <h5 class="card-title">Vue</h5>
                 <p class="card-text"></p>
               </div> -->
-              <ul class="list-group list-group-flush" align="center">
-                <li class="list-group-item">&#127860; Forks: {{ vueData.forks }}</li>
-                <li class="list-group-item">&#128064; Watchers: {{ vueData.subscribers_count }}</li>
-                <li class="list-group-item">&#x2b50; Stars: {{ vueData.watchers }}</li>
-                <li class="list-group-item">
-                  Popularity Score:
-                  {{ Math.floor(vueData.watchers + vueData.subscribers_count + vueData.forks / 3) }}
-                </li>
-              </ul>
-            </div>
+            <ul class="list-group list-group-flush" align="center">
+              <li class="list-group-item">&#127860; Forks: {{ vueData.forks }}</li>
+              <li class="list-group-item">&#128064; Watchers: {{ vueData.subscribers_count }}</li>
+              <li class="list-group-item">&#x2b50; Stars: {{ vueData.watchers }}</li>
+              <li class="list-group-item">
+                Popularity Score:
+                {{ Math.floor(vueData.watchers + vueData.subscribers_count + vueData.forks / 3) }}
+              </li>
+            </ul>
           </div>
-          <div class="col">
-            <div class="card" style="width: 18rem">
-              <img class="card-img-top" :src="angularThumb" alt="Card image cap" />
-              <!-- <div class="card-body bg-info text-dark" align="center">
+        </div>
+        <div class="col">
+          <div class="card" style="width: 18rem">
+            <img class="card-img-top" :src="angularThumb" alt="Card image cap" />
+            <!-- <div class="card-body bg-info text-dark" align="center">
                 <h5 class="card-title">Angular</h5>
                 <p class="card-text"></p>
               </div> -->
-              <ul class="list-group list-group-flush" align="center">
-                <li class="list-group-item">&#127860; Forks: {{ angularData.forks }}</li>
-                <li class="list-group-item">&#128064; Watchers: {{ angularData.subscribers_count }}</li>
-                <li class="list-group-item">&#x2b50; Stars: {{ angularData.watchers }}</li>
-                <li class="list-group-item">
-                  Popularity Score:
-                  {{ Math.floor(angularData.watchers + angularData.subscribers_count + angularData.forks / 3) }}
-                </li>
-              </ul>
-            </div>
+            <ul class="list-group list-group-flush" align="center">
+              <li class="list-group-item">&#127860; Forks: {{ angularData.forks }}</li>
+              <li class="list-group-item">&#128064; Watchers: {{ angularData.subscribers_count }}</li>
+              <li class="list-group-item">&#x2b50; Stars: {{ angularData.watchers }}</li>
+              <li class="list-group-item">
+                Popularity Score:
+                {{ Math.floor(angularData.watchers + angularData.subscribers_count + angularData.forks / 3) }}
+              </li>
+            </ul>
           </div>
-          <div class="col">
-            <div class="card" style="width: 18rem">
-              <img class="card-img-top" :src="emberThumb" alt="Card image cap" />
-              <!-- <div class="card-body bg-info text-dark" align="center">
+        </div>
+        <div class="col">
+          <div class="card" style="width: 18rem">
+            <img class="card-img-top" :src="emberThumb" alt="Card image cap" />
+            <!-- <div class="card-body bg-info text-dark" align="center">
                 <h5 class="card-title">Ember</h5>
                 <p class="card-text"></p>
               </div> -->
-              <ul class="list-group list-group-flush" align="center">
-                <li class="list-group-item">&#127860; Forks: {{ emberData.forks }}</li>
-                <li class="list-group-item">&#128064; Watchers: {{ emberData.subscribers_count }}</li>
-                <li class="list-group-item">&#x2b50; Stars: {{ emberData.watchers }}</li>
-                <li class="list-group-item">
-                  Popularity Score:
-                  {{ Math.floor(emberData.watchers + emberData.subscribers_count + emberData.forks / 3) }}
-                </li>
-              </ul>
-            </div>
+            <ul class="list-group list-group-flush" align="center">
+              <li class="list-group-item">&#127860; Forks: {{ emberData.forks }}</li>
+              <li class="list-group-item">&#128064; Watchers: {{ emberData.subscribers_count }}</li>
+              <li class="list-group-item">&#x2b50; Stars: {{ emberData.watchers }}</li>
+              <li class="list-group-item">
+                Popularity Score:
+                {{ Math.floor(emberData.watchers + emberData.subscribers_count + emberData.forks / 3) }}
+              </li>
+            </ul>
           </div>
-          <div class="col">
-            <div class="card" style="width: 18rem">
-              <img class="card-img-top" :src="svelteThumb" alt="Card image cap" />
-              <!-- <div class="card-body bg-info text-dark" align="center">
+        </div>
+        <div class="col">
+          <div class="card" style="width: 18rem">
+            <img class="card-img-top" :src="svelteThumb" alt="Card image cap" />
+            <!-- <div class="card-body bg-info text-dark" align="center">
                 <h5 class="card-title">Svelte</h5>
                 <p class="card-text"></p>
               </div> -->
-              <ul class="list-group list-group-flush" align="center">
-                <li class="list-group-item">&#127860; Forks: {{ svelteData.forks }}</li>
-                <li class="list-group-item">&#128064; Watchers: {{ svelteData.subscribers_count }}</li>
-                <li class="list-group-item">&#x2b50; Stars: {{ svelteData.watchers }}</li>
-                <li class="list-group-item">
-                  Popularity Score:
-                  {{ Math.floor(svelteData.watchers + svelteData.subscribers_count + svelteData.forks / 3) }}
-                </li>
-              </ul>
-            </div>
+            <ul class="list-group list-group-flush" align="center">
+              <li class="list-group-item">&#127860; Forks: {{ svelteData.forks }}</li>
+              <li class="list-group-item">&#128064; Watchers: {{ svelteData.subscribers_count }}</li>
+              <li class="list-group-item">&#x2b50; Stars: {{ svelteData.watchers }}</li>
+              <li class="list-group-item">
+                Popularity Score:
+                {{ Math.floor(svelteData.watchers + svelteData.subscribers_count + svelteData.forks / 3) }}
+              </li>
+            </ul>
           </div>
-          <div class="col">
-            <div class="card" style="width: 18rem">
-              <img class="card-img-top" :src="jqueryThumb" alt="Card image cap" />
-              <!-- <div class="card-body bg-info text-dark" align="center">
+        </div>
+        <div class="col">
+          <div class="card" style="width: 18rem">
+            <img class="card-img-top" :src="jqueryThumb" alt="Card image cap" />
+            <!-- <div class="card-body bg-info text-dark" align="center">
                 <h5 class="card-title">jQuery</h5>
                 <p class="card-text"></p>
               </div> -->
-              <ul class="list-group list-group-flush" align="center">
-                <li class="list-group-item">&#127860; Forks: {{ jqueryData.forks }}</li>
-                <li class="list-group-item">&#128064; Watchers: {{ jqueryData.subscribers_count }}</li>
-                <li class="list-group-item">&#x2b50; Stars: {{ jqueryData.watchers }}</li>
-                <li class="list-group-item">
-                  Popularity Score:
-                  {{ Math.floor(jqueryData.watchers + jqueryData.subscribers_count + jqueryData.forks / 3) }}
-                </li>
-              </ul>
-            </div>
+            <ul class="list-group list-group-flush" align="center">
+              <li class="list-group-item">&#127860; Forks: {{ jqueryData.forks }}</li>
+              <li class="list-group-item">&#128064; Watchers: {{ jqueryData.subscribers_count }}</li>
+              <li class="list-group-item">&#x2b50; Stars: {{ jqueryData.watchers }}</li>
+              <li class="list-group-item">
+                Popularity Score:
+                {{ Math.floor(jqueryData.watchers + jqueryData.subscribers_count + jqueryData.forks / 3) }}
+              </li>
+            </ul>
           </div>
-          <div class="col">
-            <div class="card" style="width: 18rem">
-              <img class="card-img-top" :src="reactThumb" alt="Card image cap" />
-              <!-- <div class="card-body bg-info text-dark" align="center">
+        </div>
+        <div class="col">
+          <div class="card" style="width: 18rem">
+            <img class="card-img-top" :src="reactThumb" alt="Card image cap" />
+            <!-- <div class="card-body bg-info text-dark" align="center">
                 <h5 class="card-title">React</h5>
                 <p class="card-text"></p>
               </div> -->
-              <ul class="list-group list-group-flush" align="center">
-                <li class="list-group-item">&#127860; Forks: {{ reactData.forks }}</li>
-                <li class="list-group-item">&#128064; Watchers: {{ reactData.subscribers_count }}</li>
-                <li class="list-group-item">&#x2b50; Stars: {{ reactData.watchers }}</li>
-                <li class="list-group-item">
-                  Popularity Score:
-                  {{ Math.floor(reactData.watchers + reactData.subscribers_count + reactData.forks / 3) }}
-                </li>
-              </ul>
-            </div>
+            <ul class="list-group list-group-flush" align="center">
+              <li class="list-group-item">&#127860; Forks: {{ reactData.forks }}</li>
+              <li class="list-group-item">&#128064; Watchers: {{ reactData.subscribers_count }}</li>
+              <li class="list-group-item">&#x2b50; Stars: {{ reactData.watchers }}</li>
+              <li class="list-group-item">
+                Popularity Score:
+                {{ Math.floor(reactData.watchers + reactData.subscribers_count + reactData.forks / 3) }}
+              </li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
+
     <br />
     <br />
     <div class="d-flex p-2">
@@ -152,7 +157,7 @@
 
 <style>
 body {
-  background-image: url("https://wallpapercave.com/wp/oo0Q9UW.jpg");
+  background-image: url("");
   background-color: #025979;
   background-repeat: no-repeat;
   background-attachment: fixed;
