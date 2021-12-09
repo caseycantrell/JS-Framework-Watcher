@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <br />
-    <div class="container" style="width: 36rem">
+    <div class="card" id="header" style="width: 36rem">
       <div align="center justify-content-center">
         <img class="card-img-top" :src="frameworkWatcher" />
       </div>
@@ -148,7 +148,7 @@
         </div>
         <div class="card w-75">
           <div class="card-body">
-            <div align="center" v-if="stars.series[0]['values'].length > 5">
+            <div align="center" v-if="popularity.series[0]['values'].length > 5">
               <zingchart :data="popularity" :height="350" :width="1200" />
             </div>
           </div>
@@ -160,9 +160,8 @@
 
 <style>
 body {
-  background-image: url("");
-  background-color: #025979;
-  background-repeat: no-repeat;
+  background-image: url("https://www.teahub.io/photos/full/212-2124160_4uv0t9-blue-polygon-wallpaper-4k.jpg");
+  background-color: #00bbaf;
   background-attachment: fixed;
   background-size: auto;
 }
@@ -222,7 +221,7 @@ export default {
       forks: {
         theme: "dark",
         backgroundColor: "none",
-        type: "bar",
+        type: "bar3d",
         "3d-aspect": {
           true3d: false,
           depth: "5px",
@@ -250,12 +249,29 @@ export default {
             sequence: "ANIMATION_BY_NODE",
             speed: 750,
           },
+          facets: {
+            front: {
+              "background-color": "#3EA4F9 #0055BF",
+            },
+            right: {
+              "background-color": "#3EA4F9 #0055BF",
+            },
+            left: {
+              "background-color": "#3EA4F9 #0055BF",
+            },
+            top: {
+              "background-color": "white",
+            },
+            bottom: {
+              "background-color": "white",
+            },
+          },
         },
       },
       watchers: {
         theme: "dark",
         backgroundColor: "none",
-        type: "bar",
+        type: "bar3d",
         "3d-aspect": {
           true3d: false,
           depth: "5px",
@@ -282,15 +298,32 @@ export default {
             sequence: "ANIMATION_BY_NODE",
             speed: 750,
           },
+          facets: {
+            front: {
+              "background-color": "#3EA4F9 #0055BF",
+            },
+            right: {
+              "background-color": "#3EA4F9 #0055BF",
+            },
+            left: {
+              "background-color": "#3EA4F9 #0055BF",
+            },
+            top: {
+              "background-color": "white",
+            },
+            bottom: {
+              "background-color": "white",
+            },
+          },
         },
       },
       stars: {
         theme: "dark",
         backgroundColor: "none",
-        type: "bar",
+        type: "bar3d",
         "3d-aspect": {
           true3d: false,
-          depth: "10px",
+          depth: "5px",
         },
         title: {
           text: "Stars",
@@ -314,15 +347,32 @@ export default {
             sequence: "ANIMATION_BY_NODE",
             speed: 750,
           },
+          facets: {
+            front: {
+              "background-color": "#3EA4F9 #0055BF",
+            },
+            right: {
+              "background-color": "#3EA4F9 #0055BF",
+            },
+            left: {
+              "background-color": "#3EA4F9 #0055BF",
+            },
+            top: {
+              "background-color": "white",
+            },
+            bottom: {
+              "background-color": "white",
+            },
+          },
         },
       },
       popularity: {
         theme: "dark",
         backgroundColor: "none",
-        type: "bar",
+        type: "bar3d",
         "3d-aspect": {
           true3d: false,
-          depth: "10px",
+          depth: "5px",
         },
         title: {
           text: "Popularity Score",
@@ -348,6 +398,23 @@ export default {
             method: "ANIMATION_STRONG_EASE_IN",
             sequence: "ANIMATION_BY_NODE",
             speed: 750,
+          },
+          facets: {
+            front: {
+              "background-color": "#3EA4F9 #0055BF",
+            },
+            right: {
+              "background-color": "#3EA4F9 #0055BF",
+            },
+            left: {
+              "background-color": "#3EA4F9 #0055BF",
+            },
+            top: {
+              "background-color": "white",
+            },
+            bottom: {
+              "background-color": "white",
+            },
           },
         },
       },
