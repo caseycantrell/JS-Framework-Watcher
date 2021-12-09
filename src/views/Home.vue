@@ -127,21 +127,21 @@
         <div class="card w-75 d-flex flex-column">
           <div class="card-body justify-content-between">
             <div v-if="forks.series[0]['values'].length > 5">
-              <zingchart :data="forks" :height="300" :width="1200" />
+              <zingchart :data="forks" :height="350" :width="1200" />
             </div>
           </div>
         </div>
         <div class="card w-75">
           <div class="card-body">
             <div align="center" v-if="watchers.series[0]['values'].length > 5">
-              <zingchart :data="watchers" :height="300" :width="1200" />
+              <zingchart :data="watchers" :height="350" :width="1200" />
             </div>
           </div>
         </div>
         <div class="card w-75">
           <div class="card-body">
             <div align="center" v-if="stars.series[0]['values'].length > 5">
-              <zingchart :data="stars" :height="300" :width="1200" />
+              <zingchart :data="stars" :height="350" :width="1200" />
             </div>
           </div>
         </div>
@@ -212,10 +212,11 @@ export default {
       forks: {
         theme: "dark",
         backgroundColor: "none",
-        type: "bar3d",
+        type: "bar",
         "3d-aspect": {
           true3d: false,
-          depth: "30px",
+          depth: "5px",
+          zoom: 1,
         },
         title: {
           text: "Forks",
@@ -230,7 +231,7 @@ export default {
           labels: ["Vue", "Angular", "Ember", "Svelte", "jQuery", "React"],
         },
         scaleY: {
-          label: { text: "Total" },
+          label: { text: "" },
         },
         plot: {
           animation: {
@@ -244,10 +245,10 @@ export default {
       watchers: {
         theme: "dark",
         backgroundColor: "none",
-        type: "bar3d",
+        type: "bar",
         "3d-aspect": {
           true3d: false,
-          depth: "30px",
+          depth: "5px",
         },
         title: {
           text: "Watchers",
@@ -262,7 +263,7 @@ export default {
           labels: ["Vue", "Angular", "Ember", "Svelte", "jQuery", "React"],
         },
         scaleY: {
-          label: { text: "Total" },
+          label: { text: "" },
         },
         plot: {
           animation: {
@@ -276,10 +277,10 @@ export default {
       stars: {
         theme: "dark",
         backgroundColor: "none",
-        type: "bar3d",
+        type: "bar",
         "3d-aspect": {
           true3d: false,
-          depth: "30px",
+          depth: "10px",
         },
         title: {
           text: "Stars",
@@ -294,7 +295,7 @@ export default {
           labels: ["Vue", "Angular", "Ember", "Svelte", "jQuery", "React"],
         },
         scaleY: {
-          label: { text: "Total" },
+          label: { text: "" },
         },
         plot: {
           animation: {
