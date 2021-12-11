@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <div class="background-image"></div>
     <br />
     <div class="container-sm" style="width: 60rem">
       <div class="row">
@@ -20,7 +21,7 @@
         <div class="col">
           <div class="card" style="width: 18rem">
             <img class="card-img-top" :src="vueThumb" alt="Card image cap" />
-            <ul class="list-group list-group-flush" align="center">
+            <ul class="list-group" align="center">
               <li class="list-group-item">
                 <i class="bi bi-share-fill" />
                 &nbsp;Forks: {{ vueData.forks }}
@@ -43,7 +44,7 @@
         <div class="col">
           <div class="card" style="width: 18rem">
             <img class="card-img-top" :src="angularThumb" alt="Card image cap" />
-            <ul class="list-group list-group-flush" align="center">
+            <ul class="list-group" align="center">
               <li class="list-group-item">
                 <i class="bi bi-share-fill" />
                 &nbsp;Forks: {{ angularData.forks }}
@@ -66,7 +67,7 @@
         <div class="col">
           <div class="card" style="width: 18rem">
             <img class="card-img-top" :src="emberThumb" alt="Card image cap" />
-            <ul class="list-group list-group-flush" align="center">
+            <ul class="list-group" align="center">
               <li class="list-group-item">
                 <i class="bi bi-share-fill"></i>
                 &nbsp;Forks: {{ emberData.forks }}
@@ -89,7 +90,7 @@
         <div class="col">
           <div class="card" style="width: 18rem">
             <img class="card-img-top" :src="svelteThumb" alt="Card image cap" />
-            <ul class="list-group list-group-flush" align="center">
+            <ul class="list-group" align="center">
               <li class="list-group-item">
                 <i class="bi bi-share-fill" />
                 &nbsp;Forks: {{ svelteData.forks }}
@@ -112,7 +113,7 @@
         <div class="col">
           <div class="card" style="width: 18rem">
             <img class="card-img-top" :src="jqueryThumb" alt="Card image cap" />
-            <ul class="list-group list-group-flush" align="center">
+            <ul class="list-group" align="center">
               <li class="list-group-item">
                 <i class="bi bi-share-fill" />
                 &nbsp;Forks: {{ jqueryData.forks }}
@@ -135,7 +136,7 @@
         <div class="col">
           <div class="card" style="width: 18rem">
             <img class="card-img-top" :src="reactThumb" alt="Card image cap" />
-            <ul class="list-group list-group-flush" align="center">
+            <ul class="list-group" align="center">
               <li class="list-group-item">
                 <i class="bi bi-share-fill" />
                 &nbsp;Forks: {{ reactData.forks }}
@@ -201,6 +202,9 @@
 </template>
 
 <style>
+ul {
+  padding-top: 20px;
+}
 i {
   color: rgb(143, 143, 143);
 }
@@ -219,7 +223,8 @@ body {
   background-size: auto;
 }
 
-.card {
+.card,
+li {
   box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.502);
   transition: 0.3s;
   border-radius: 5px;
@@ -227,8 +232,8 @@ body {
   float: none;
   margin-bottom: 20px;
   background-color: #ffffff10;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 </style>
 
@@ -461,7 +466,6 @@ export default {
   },
   created: function () {
     axios.get("https://api.github.com/repos/vuejs/vue").then((response) => {
-      console.log(response.data);
       this.vueData = response.data;
       this.forks.series[0].values[0] = response.data.forks;
       this.watchers.series[0].values[0] = response.data.subscribers_count;
@@ -471,7 +475,6 @@ export default {
       );
     });
     axios.get("https://api.github.com/repos/angular/angular.js").then((response) => {
-      console.log(response.data);
       this.angularData = response.data;
       this.forks.series[0].values[1] = response.data.forks;
       this.watchers.series[0].values[1] = response.data.subscribers_count;
@@ -481,7 +484,6 @@ export default {
       );
     });
     axios.get("https://api.github.com/repos/emberjs/ember.js").then((response) => {
-      console.log(response.data);
       this.emberData = response.data;
       this.forks.series[0].values[2] = response.data.forks;
       this.watchers.series[0].values[2] = response.data.subscribers_count;
@@ -491,7 +493,6 @@ export default {
       );
     });
     axios.get("https://api.github.com/repos/sveltejs/svelte").then((response) => {
-      console.log(response.data);
       this.svelteData = response.data;
       this.forks.series[0].values[3] = response.data.forks;
       this.watchers.series[0].values[3] = response.data.subscribers_count;
@@ -501,7 +502,6 @@ export default {
       );
     });
     axios.get("https://api.github.com/repos/jquery/jquery").then((response) => {
-      console.log(response.data);
       this.jqueryData = response.data;
       this.forks.series[0].values[4] = response.data.forks;
       this.watchers.series[0].values[4] = response.data.subscribers_count;
@@ -511,7 +511,6 @@ export default {
       );
     });
     axios.get("https://api.github.com/repos/facebook/react").then((response) => {
-      console.log(response.data);
       this.reactData = response.data;
       this.forks.series[0].values[5] = response.data.forks;
       this.watchers.series[0].values[5] = response.data.subscribers_count;
@@ -521,7 +520,7 @@ export default {
       );
     });
   },
-  mounted: function () {},
-  methods: function () {},
+  // mounted: function () {},
+  // methods: function () {},
 };
 </script>
