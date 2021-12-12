@@ -4,10 +4,11 @@
     <br />
     <div class="container-sm" style="width: 60rem">
       <div class="row">
-        <div class="col"><h1>JavaScript</h1></div>
         <div class="col"><h1>Framework</h1></div>
-        <div class="col">
-          <img :src="watcher" width="275px" height="63px" />
+        <div class="col"><h1>Watcher</h1></div>
+
+        <div class="eyeBall">
+          <div class="iris"></div>
         </div>
       </div>
     </div>
@@ -234,6 +235,64 @@ li {
   background-color: #ffffff10;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
+}
+
+.card:hover {
+  width: 284px;
+  box-shadow: 1px 1px 20px #aaaaaa;
+}
+
+.container {
+  position: relative;
+  cursor: pointer;
+}
+
+.iris {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border: 5px solid #333;
+  background-color: #0077b6;
+  border-radius: 50%;
+  left: 40px;
+  top: 30px;
+}
+
+.iris:before {
+  content: "";
+  position: absolute;
+  background-color: #333;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  top: 22%;
+  left: 22%;
+}
+
+.iris:after {
+  content: "";
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  top: 35%;
+  left: 65%;
+  box-shadow: -35px 20px rgba(255, 255, 255, 0.4);
+}
+
+.eyeBall {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  background-color: transparent;
+  border: 5px solid #333;
+  border-radius: 100% 0;
+  box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.3);
+  transform: rotate(45deg);
+  top: -25px;
+  z-index: 1;
+  overflow: hidden;
 }
 </style>
 
@@ -520,7 +579,14 @@ export default {
       );
     });
   },
-  // mounted: function () {},
+  mounted: function () {
+    const eye = document.querySelector(".iris");
+    window.addEventListener("mousemove", (event) => {
+      const x = -(window.innerWidth / 2 - event.pageX) / 35;
+      const y = -(window.innerHeight / 2 - event.pageY) / 35;
+      eye.style.transform = `rotate(-45deg) translateY(${y}px) translateX(${x}px)`;
+    });
+  },
   // methods: function () {},
 };
 </script>
