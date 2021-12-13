@@ -2,7 +2,6 @@
   <div class="home">
     <!-- title -->
 
-    <div align="center"><h1>JavaScript Framework</h1></div>
     <div align="center"><img :src="watcher" style="width: 500px" /></div>
     <br />
     <br />
