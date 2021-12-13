@@ -10,6 +10,8 @@ import zingchartVue from "zingchart-vue";
 
 import "bootstrap-icons/font/bootstrap-icons.css";
 
+import "/public/styles.css";
+
 Vue.component("zingchart", zingchartVue);
 
 axios.defaults.baseURL = process.env.NODE_ENV === "development" ? "http://localhost:8080" : "/";
