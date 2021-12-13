@@ -160,28 +160,28 @@
     <div class="mx-1 row row-cols-1 row-cols-md-1">
       <div class="card w-75">
         <div class="card-body">
-          <div align="center" v-if="forks.series[0]['values'].length > 5">
+          <div align="center" v-if="forks.series[0].values.length > 5">
             <zingchart :data="forks" :height="350" :width="1200" />
           </div>
         </div>
       </div>
       <div class="card w-75">
         <div class="card-body">
-          <div align="center" v-if="watchers.series[0]['values'].length > 5">
+          <div align="center" v-if="watchers.series[0].values.length > 5">
             <zingchart :data="watchers" :height="350" :width="1200" />
           </div>
         </div>
       </div>
       <div class="card w-75">
         <div class="card-body">
-          <div align="center" v-if="stars.series[0]['values'].length > 5">
+          <div align="center" v-if="stars.series[0].values.length > 5">
             <zingchart :data="stars" :height="350" :width="1200" />
           </div>
         </div>
       </div>
       <div class="card w-75">
         <div class="card-body">
-          <div align="center" v-if="popularity.series[0]['values'].length > 5">
+          <div align="center" v-if="popularity.series[0].values.length > 5">
             <zingchart :data="popularity" :height="350" :width="1200" />
           </div>
         </div>
