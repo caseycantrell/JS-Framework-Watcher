@@ -237,13 +237,13 @@ li {
 
 .card:hover {
   width: 284px;
-  box-shadow: 1px 1px 20px #aaaaaa;
+  box-shadow: 0px 0px 25px #00c3ffd4;
 }
 
 li:hover {
   -webkit-animation: animation 1000ms linear both;
   animation: animation 1000ms linear both;
-  box-shadow: 1px 1px 8px #00c3ffd4;
+  box-shadow: 0px 0px 6px #00c3ffd4;
 }
 
 @-webkit-keyframes animation {
