@@ -161,28 +161,28 @@
       <div class="card w-75">
         <div class="card-body">
           <div align="center" v-if="forks.series[0].values.length > 5">
-            <zingchart :data="forks" :height="350" :width="1200" />
+            <zingchart :data="forks" :height="350" :width="600" />
           </div>
         </div>
       </div>
       <div class="card w-75">
         <div class="card-body">
           <div align="center" v-if="watchers.series[0].values.length > 5">
-            <zingchart :data="watchers" :height="350" :width="1200" />
+            <zingchart :data="watchers" :height="350" :width="600" />
           </div>
         </div>
       </div>
       <div class="card w-75">
         <div class="card-body">
           <div align="center" v-if="stars.series[0].values.length > 5">
-            <zingchart :data="stars" :height="350" :width="1200" />
+            <zingchart :data="stars" :height="350" :width="600" />
           </div>
         </div>
       </div>
       <div class="card w-75">
         <div class="card-body">
           <div align="center" v-if="popularity.series[0].values.length > 5">
-            <zingchart :data="popularity" :height="350" :width="1200" />
+            <zingchart :data="popularity" :height="350" :width="600" />
           </div>
         </div>
       </div>
@@ -744,7 +744,7 @@ export default {
       );
     });
   },
-  // mounted: function () {},
-  // methods: function () {},
+  mounted: function () {},
+  methods: function () {},
 };
 </script>
